@@ -44,10 +44,10 @@ namespace BankTransactions.Controllers
             return View(transaction);
         }
 
-        // GET: Transaction/Create
-        public IActionResult Create()
+        // GET: Transaction/AddOrEdit
+        public IActionResult AddOrEdit()
         {
-            return View();
+            return View(new Transaction());
         }
 
         // POST: Transaction/Create
@@ -55,7 +55,7 @@ namespace BankTransactions.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionId,AccountNumber,BeneficiaryName,BankNamme,SWIFTCode,Amount,Date")] Transaction transaction)
+        public async Task<IActionResult> AddOrEdit([Bind("TransactionId,AccountNumber,BeneficiaryName,BankNamme,SWIFTCode,Amount,Date")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
